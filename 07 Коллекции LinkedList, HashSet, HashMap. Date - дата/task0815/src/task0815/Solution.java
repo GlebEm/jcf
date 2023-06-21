@@ -1,38 +1,67 @@
 package task0815;
 
+import com.sun.jdi.Value;
+
+import javax.swing.*;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
+import java.security.Key;
+import java.security.KeyPair;
 import java.util.HashMap;
 import java.util.Map;
 
 /* 
-РџРµСЂРµРїРёСЃСЊ РЅР°СЃРµР»РµРЅРёСЏ
-РЎРѕР·РґР°С‚СЊ СЃР»РѕРІР°СЂСЊ (Map<String, String>) Р·Р°РЅРµСЃС‚Рё РІ РЅРµРіРѕ РґРµСЃСЏС‚СЊ Р·Р°РїРёСЃРµР№ РїРѕ РїСЂРёРЅС†РёРїСѓ "Р¤Р°РјРёР»РёСЏ" - "РРјСЏ".
-РџСЂРѕРІРµСЂРёС‚СЊ СЃРєРѕР»СЊРєРѕ Р»СЋРґРµР№ РёРјРµСЋС‚ СЃРѕРІРїР°РґР°СЋС‰РёРµ СЃ Р·Р°РґР°РЅРЅС‹Рј РёРјРµРЅРµРј РёР»Рё С„Р°РјРёР»РёРµР№.
+Перепись населения
+Создать словарь (Map<String, String>) занести в него десять записей по принципу "Фамилия" - "Имя".
+Проверить сколько людей имеют совпадающие с заданным именем или фамилией.
 
 
 Requirements:
-1. РџСЂРѕРіСЂР°РјРјР° РЅРµ РґРѕР»Р¶РЅР° РІС‹РІРѕРґРёС‚СЊ С‚РµРєСЃС‚ РЅР° СЌРєСЂР°РЅ.
-2. РџСЂРѕРіСЂР°РјРјР° РЅРµ РґРѕР»Р¶РЅР° СЃС‡РёС‚С‹РІР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹.
-3. РњРµС‚РѕРґ createMap() РґРѕР»Р¶РµРЅ СЃРѕР·РґР°РІР°С‚СЊ Рё РІРѕР·РІСЂР°С‰Р°С‚СЊ СЃР»РѕРІР°СЂСЊ Map СЃ С‚РёРїРѕРј СЌР»РµРјРµРЅС‚РѕРІ String, String СЃРѕСЃС‚РѕСЏС‰РёС… РёР· 10 Р·Р°РїРёСЃРµР№ РїРѕ РїСЂРёРЅС†РёРїСѓ В«Р¤Р°РјРёР»РёСЏВ» - В«РРјСЏВ».
-4. РњРµС‚РѕРґ getCountTheSameFirstName() РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ С‡РёСЃР»Рѕ Р»СЋРґРµР№ Сѓ РєРѕС‚РѕСЂС‹С… СЃРѕРІРїР°РґР°РµС‚ РёРјСЏ.
-5. РњРµС‚РѕРґ getCountTheSameLastName() РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ С‡РёСЃР»Рѕ Р»СЋРґРµР№ Сѓ РєРѕС‚РѕСЂС‹С… СЃРѕРІРїР°РґР°РµС‚ С„Р°РјРёР»РёСЏ.*/
+1. Программа не должна выводить текст на экран.
+2. Программа не должна считывать значения с клавиатуры.
+3. Метод createMap() должен создавать и возвращать словарь Map с типом элементов String, String состоящих из 10 записей по принципу «Фамилия» - «Имя».
+4. Метод getCountTheSameFirstName() должен возвращать число людей у которых совпадает имя.
+5. Метод getCountTheSameLastName() должен возвращать число людей у которых совпадает фамилия.*/
 
 public class Solution {
     public static Map<String, String> createMap() {
-        //РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
-
+        Map<String, String> map = new HashMap<>();
+        map.put("Олегов", "Иван");
+        map.put("Иванов", "Олег");
+        map.put("Иванов", "Петр");
+        map.put("Олегов", "Петр");
+        map.put("Алексашов", "Дмитрий");
+        map.put("Перов", "Дмитрий");
+        map.put("Непомнящий", "Ян");
+        map.put("Третьяков", "Иван");
+        map.put("Олегов", "Иван");
+        map.put("Потапов", "Иван");//напишите тут ваш код
+        return map;
     }
 
     public static int getCountTheSameFirstName(Map<String, String> map, String name) {
-        //РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
-
+        int countFN = 0;
+        for (Map.Entry<String, String> pair : map.entrySet()) {
+            if (pair.getValue().equals(name)) {
+                countFN++;
+            }
+        }
+        return countFN;//напишите тут ваш код
     }
 
     public static int getCountTheSameLastName(Map<String, String> map, String lastName) {
-        //РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+        int countLN = 0;
+        for (Map.Entry<String, String> pair : map.entrySet()) {
+            if (pair.getKey().equals(lastName)) {
+                countLN++;
+            }
+        }
+        return countLN;
 
     }
 
     public static void main(String[] args) {
-
+        System.out.println("Количество людей с заданным именем: " + getCountTheSameFirstName(createMap(), "Иван"));
+        System.out.println("Количество людей с заданной фамилией: " + getCountTheSameLastName(createMap(), "Олегов"));
+        System.out.println("Размер мапы: "+createMap().size());
     }
 }

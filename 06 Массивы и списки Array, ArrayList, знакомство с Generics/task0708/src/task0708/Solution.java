@@ -21,6 +21,22 @@ public class Solution {
     private static ArrayList<String> strings;
 
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        strings = new ArrayList<String>(); //1. В методе main инициализируй существующее поле strings класса Solution новым ArrayList<>
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int maxStringSize = 0;
+        String maxString;
+        for (int i = 0; i < 5; i++) {
+            strings.add(i, reader.readLine());
+            if (strings.get(i).length() > maxStringSize) {  //при объявлении во втором цикле будет выводить и максимальное число и следующие за ним
+                maxStringSize = strings.get(i).length(); //ВАЖНО чтобы была объявлена тут
+            }
+        }
+        for (int i = 0; i < strings.size(); i++) {
+            if (strings.get(i).length() == maxStringSize) {
+                maxString = strings.get(i);
+                System.out.println(maxString);
+            }
+        }
+
     }
 }

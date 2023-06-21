@@ -1,6 +1,7 @@
 package task0819;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /* 
@@ -24,20 +25,37 @@ Requirements:
 public class Solution {
     public static void main(String[] args) {
         Set<Cat> cats = createCats();
-
+        Iterator<Cat> iterator = cats.iterator(); //Заходим в множество, удаляем кота (через for each удалить нельзя)
+        Cat cat = iterator.next(); //получили элемент - кота
+        cats.remove(cat); //удалили элемент - кота
         //напишите тут ваш код. step 3 - пункт 3
 
         printCats(cats);
     }
 
     public static Set<Cat> createCats() {
+        Set<Cat> resultCat = new HashSet<Cat>();
+        for (int i = 0; i < 3; i++) {
+            Cat cat = new Cat();
+            resultCat.add(cat);
+        }
         //напишите тут ваш код. step 2 - пункт 2
-        return null;
+        return resultCat;
     }
 
     public static void printCats(Set<Cat> cats) {
-        // step 4 - пункт 4
+        for (Cat cat : cats) {
+            System.out.println(cat);// step 4 - пункт 4
+        }
     }
 
+    public static class Cat {
+        Cat() {
+        }
+
+        public String toString() {
+            return "Cat";
+        }
+    }
     // step 1 - пункт 1
 }

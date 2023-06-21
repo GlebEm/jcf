@@ -45,11 +45,25 @@ public class Solution {
         ArrayList<String> resultStrings = new ArrayList<String>();
         for (int i = 0; i < strings.size(); i++) {
             String string = strings.get(i);
-            resultStrings.add(string.toUpperCase());
+            if (strings.get(i).length() % 2 == 0) {
+                for (int j = 0; j < 2; j++) {
+                    resultStrings.add(string);
+                    System.out.print(strings.get(i) + " ");
+                }
+            } else
+                for (int j = 0; j < 3; j++) {
+                    resultStrings.add(string);
+                    System.out.print(strings.get(i) + " ");
+                }
+            if (i == strings.size() - 1) {
+                continue;
+            } else System.out.println();
         }
 
-        for (int i = 0; i < resultStrings.size(); i++) {
-            System.out.println(resultStrings.get(i));
-        }
+//        for (int i = 0; i < resultStrings.size(); i++) {
+//           int n = resultStrings.size();
+//                System.out.print(resultStrings.get(i) + (n%3==0?"\n":" "));
+//
+//        }
     }
 }

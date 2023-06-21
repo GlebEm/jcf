@@ -1,30 +1,58 @@
 package task0817;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /* 
-РќР°Рј РїРѕРІС‚РѕСЂС‹ РЅРµ РЅСѓР¶РЅС‹
-РЎРѕР·РґР°С‚СЊ СЃР»РѕРІР°СЂСЊ (Map<String, String>) Р·Р°РЅРµСЃС‚Рё РІ РЅРµРіРѕ РґРµСЃСЏС‚СЊ Р·Р°РїРёСЃРµР№ РїРѕ РїСЂРёРЅС†РёРїСѓ "С„Р°РјРёР»РёСЏ" - "РёРјСЏ".
-РЈРґР°Р»РёС‚СЊ Р»СЋРґРµР№, РёРјРµСЋС‰РёС… РѕРґРёРЅР°РєРѕРІС‹Рµ РёРјРµРЅР°.
+Нам повторы не нужны
+Создать словарь (Map<String, String>) занести в него десять записей по принципу "фамилия" - "имя".
+Удалить людей, имеющих одинаковые имена.
 
 
 Requirements:
-1. РџСЂРѕРіСЂР°РјРјР° РЅРµ РґРѕР»Р¶РЅР° РІС‹РІРѕРґРёС‚СЊ С‚РµРєСЃС‚ РЅР° СЌРєСЂР°РЅ.
-2. РџСЂРѕРіСЂР°РјРјР° РЅРµ РґРѕР»Р¶РЅР° СЃС‡РёС‚С‹РІР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹.
-3. РњРµС‚РѕРґ createMap() РґРѕР»Р¶РµРЅ СЃРѕР·РґР°РІР°С‚СЊ Рё РІРѕР·РІСЂР°С‰Р°С‚СЊ СЃР»РѕРІР°СЂСЊ Map СЃ С‚РёРїРѕРј СЌР»РµРјРµРЅС‚РѕРІ String, String СЃРѕСЃС‚РѕСЏС‰РёС… РёР· 10 Р·Р°РїРёСЃРµР№.
-4. РњРµС‚РѕРґ removeTheFirstNameDuplicates() РґРѕР»Р¶РµРЅ СѓРґР°Р»СЏС‚СЊ РёР· СЃР»РѕРІР°СЂСЏ РІСЃРµС… Р»СЋРґРµР№, РёРјРµСЋС‰РёРµ РѕРґРёРЅР°РєРѕРІС‹Рµ РёРјРµРЅР°.
-5. РњРµС‚РѕРґ removeTheFirstNameDuplicates() РґРѕР»Р¶РµРЅ РІС‹Р·С‹РІР°С‚СЊ РјРµС‚РѕРґ removeItemFromMapByValue().*/
+1. Программа не должна выводить текст на экран.
+2. Программа не должна считывать значения с клавиатуры.
+3. Метод createMap() должен создавать и возвращать словарь Map с типом элементов String, String состоящих из 10 записей.
+4. Метод removeTheFirstNameDuplicates() должен удалять из словаря всех людей, имеющие одинаковые имена.
+5. Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().*/
 
 public class Solution {
-    public static Map<String, String> createMap() {
-        //РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+    public static Map<String, String> createMap() { //3. Метод createMap() должен создавать и возвращать словарь Map с типом элементов String, String состоящих из 10 записей.
+        Map<String, String> map = new HashMap<>();
+        map.put("Олегов", "Иван");
+        map.put("Токарев", "Олег");
+        map.put("Иванов", "Иван");
+        map.put("Петров", "Петр");
+        map.put("Алексашов", "Дмитрий");
+        map.put("Перов", "Дмитрий");
+        map.put("Непомнящий", "Ян");
+        map.put("Третьяков", "Иван");
+        map.put("Дворецков", "Иван");
+        map.put("Потапов", "Иван");
+        return map;//напишите тут ваш код
 
     }
 
     public static void removeTheFirstNameDuplicates(Map<String, String> map) {
-        //РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+        HashMap<String, String> name = new HashMap<String, String>(map);
+        for (Map.Entry pair : name.entrySet()) {
+            int count = 0;
+            String a = (String) pair.getValue();
 
+            for(Map.Entry pair2: name.entrySet()){
+                if(pair2.getValue().equals(a))
+               count++;
+            }
+
+            if (count>1){
+                for(int i =0;i<count;i++)
+                    removeItemFromMapByValue(map, String.valueOf(a));
+            }
+        }
+//        for(Map.Entry<String,String> entry: map.entrySet()){   //Проверка работоспособности
+//            System.out.println(entry.getKey()+" - "+entry.getValue());
+//        }
     }
 
     public static void removeItemFromMapByValue(Map<String, String> map, String value) {
@@ -37,6 +65,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
+        removeTheFirstNameDuplicates(createMap());
     }
 }

@@ -6,29 +6,31 @@ import java.util.LinkedList;
 import java.util.List;
 
 /* 
-РР·РјРµСЂРёС‚СЊ, СЃРєРѕР»СЊРєРѕ РІСЂРµРјРµРЅРё Р·Р°РЅРёРјР°РµС‚ 10 С‚С‹СЃСЏС‡ РІСЃС‚Р°РІРѕРє РґР»СЏ РєР°Р¶РґРѕРіРѕ СЃРїРёСЃРєР°.
-РњРµС‚РѕРґ getInsertTimeInMs РґРѕР»Р¶РµРЅ РІРµСЂРЅСѓС‚СЊ РІСЂРµРјСЏ СЃРІРѕРµРіРѕ РёСЃРїРѕР»РЅРµРЅРёСЏ РІ РјРёР»Р»РёСЃРµРєСѓРЅРґР°С….
+Измерить, сколько времени занимает 10 тысяч вставок для каждого списка.
+Метод getInsertTimeInMs должен вернуть время своего исполнения в миллисекундах.
 
 
 Requirements:
-1. РџСЂРѕРіСЂР°РјРјР° РґРѕР»Р¶РЅР° РІС‹РІРѕРґРёС‚СЊ С‡РёСЃР»Р° РЅР° СЌРєСЂР°РЅ.
-2. РњРµС‚РѕРґ main РґРѕР»Р¶РµРЅ РІС‹Р·С‹РІР°С‚СЊ РјРµС‚РѕРґ getInsertTimeInMs С‚РѕР»СЊРєРѕ РґРІР° СЂР°Р·Р°.
-3. РњРµС‚РѕРґ insert10000(List list) РґРѕР»Р¶РµРЅ РІСЃС‚Р°РІР»СЏС‚СЊ 10 С‚С‹СЃСЏС‡ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃРїРёСЃРѕРє.
-4. РњРµС‚РѕРґ getInsertTimeInMs РґРѕР»Р¶РµРЅ РІС‹Р·С‹РІР°С‚СЊ РјРµС‚РѕРґ insert10000 С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·.
-5. РњРµС‚РѕРґ getInsertTimeInMs РґРѕР»Р¶РµРЅ РІРµСЂРЅСѓС‚СЊ РІСЂРµРјСЏ РІ РјРёР»Р»РёСЃРµРєСѓРЅРґР°С…, РєРѕС‚РѕСЂРѕРµ Р·Р°РЅРёРјР°РµС‚ 10 С‚С‹СЃСЏС‡ РІСЃС‚Р°РІРѕРє РІ СЃРїРёСЃРѕРє.*/
+1. Программа должна выводить числа на экран.
+2. Метод main должен вызывать метод getInsertTimeInMs только два раза.
+3. Метод insert10000(List list) должен вставлять 10 тысяч элементов в список.
+4. Метод getInsertTimeInMs должен вызывать метод insert10000 только один раз.
+5. Метод getInsertTimeInMs должен вернуть время в миллисекундах, которое занимает 10 тысяч вставок в список.*/
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(getInsertTimeInMs(new ArrayList()));
-        System.out.println(getInsertTimeInMs(new LinkedList()));
+        System.out.println("Время в миллисекундах равно: " + getInsertTimeInMs(new ArrayList()) + " мс.");
+        System.out.println("Время в миллисекундах равно: " + getInsertTimeInMs(new LinkedList()) + " мс.");
     }
 
     public static long getInsertTimeInMs(List list) {
-        // РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
-
+        // напишите тут ваш код
+        long before = System.currentTimeMillis();
         insert10000(list);
-
-        // РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+        long after = System.currentTimeMillis();
+        long time = after - before;
+        return time;
+        // напишите тут ваш код
 
     }
 

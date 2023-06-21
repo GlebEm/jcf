@@ -19,7 +19,7 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(); //1. Программа должна создавать переменную коллекции Map с типом элементов String, Object. Переменная должна быть сразу проинициализирована.
         map.put("Sim", 5);
         map.put("Tom", 5.5);
         map.put("Arbus", false);
@@ -29,9 +29,11 @@ public class Solution {
         map.put("Food", new Character('3'));
         map.put("Gevey", '6');
         map.put("Hugs", 111111111111L);
-        map.put("Comp", (double) 123);
+        map.put("Comp", (double) 123); //3. Программа должна добавлять в коллекцию 10 различных объектов, согласно условию.
 
-        //напишите тут ваш код
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue()); //4. Программа должна выводить содержимое коллекции на экран, каждую пару с новой строки.*/
+        }
 
     }
 }

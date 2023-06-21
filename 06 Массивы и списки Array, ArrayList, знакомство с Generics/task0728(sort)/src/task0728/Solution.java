@@ -2,6 +2,7 @@ package task0728;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /* 
 В убывающем порядке
@@ -24,14 +25,18 @@ public class Solution {
             array[i] = Integer.parseInt(reader.readLine());
         }
 
-        sort(array);
+        sort(array); //5. Метод sort должен сортировать переданный массив по убыванию.
 
-        for (int x : array) {
-            System.out.println(x);
-        }
+//        for (int x : array) {
+//            System.out.println(x);
+//        }
     }
 
     public static void sort(int[] array) {
-        //напишите тут ваш код
+        Arrays.sort(array);
+        int n = array.length;
+        for (int j = n-1;j>=0;j--){
+            System.out.println(array[j]);
+        }
     }
 }

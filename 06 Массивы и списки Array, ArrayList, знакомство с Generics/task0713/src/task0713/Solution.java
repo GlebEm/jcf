@@ -25,10 +25,31 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        ArrayList<Integer> list3 = new ArrayList<Integer>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < 20; i++) {
+            list.add(i, Integer.parseInt(reader.readLine())); //2. Считать 20 чисел с клавиатуры и добавить их в главный список.
+            if (list.get(i) % 3 == 0) {
+                list1.add(list.get(i)); //3. Добавить в первый дополнительный список все числа из главного, которые нацело делятся на 3.
+            }
+            if (list.get(i) % 2 == 0) {
+                list2.add(list.get(i)); //4. Добавить во второй дополнительный список все числа из главного, которые нацело делятся на 2.
+            }
+            if (list.get(i) % 3 != 0 && list.get(i) % 2 != 0) { //5. Добавить в третий дополнительный список все остальные числа из главного.
+                list3.add(list.get(i));
+            }
+        }
+        printList(list1); //7. Программа должна вывести три дополнительных списка, используя метод printList.*/
+        printList(list2);
+        printList(list3);//напишите тут ваш код
     }
 
     public static void printList(ArrayList<Integer> list) {
-        //напишите тут ваш код
+        for (int i = 0; i < list.size(); i++) { //6. Метод printList должен выводить на экран все элементы переданного списка, каждый с новой строки.
+            System.out.println(list.get(i));//напишите тут ваш код
+        }
     }
 }

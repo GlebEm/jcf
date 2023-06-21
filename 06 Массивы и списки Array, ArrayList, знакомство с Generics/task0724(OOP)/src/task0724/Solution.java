@@ -1,47 +1,89 @@
 package task0724;
 
 /* 
-РЎРµРјРµР№РЅР°СЏ РїРµСЂРµРїРёСЃСЊ
-РЎРѕР·РґР°Р№ РєР»Р°СЃСЃ Human СЃ РїРѕР»СЏРјРё РёРјСЏ(String), РїРѕР»(boolean), РІРѕР·СЂР°СЃС‚(int), РѕС‚РµС†(Human), РјР°С‚СЊ(Human). РЎРѕР·РґР°Р№ РѕР±СЉРµРєС‚С‹ Рё Р·Р°РїРѕР»РЅРё РёС… С‚Р°Рє, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёР»РѕСЃСЊ: Р”РІР° РґРµРґСѓС€РєРё, РґРІРµ Р±Р°Р±СѓС€РєРё, РѕС‚РµС†, РјР°С‚СЊ, С‚СЂРѕРµ РґРµС‚РµР№. Р’С‹РІРµСЃС‚Рё РѕР±СЉРµРєС‚С‹ РЅР° СЌРєСЂР°РЅ.
+Семейная перепись
+Создай класс Human с полями имя(String), пол(boolean), возраст(int), отец(Human), мать(Human). Создай объекты и заполни
+их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей. Вывести объекты на экран.
 
-РџСЂРёРјРµС‡Р°РЅРёРµ:
-Р•СЃР»Рё РЅР°РїРёСЃР°С‚СЊ СЃРІРѕР№ РјРµС‚РѕРґ String toString() РІ РєР»Р°СЃСЃРµ Human, С‚Рѕ РёРјРµРЅРЅРѕ РѕРЅ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРё РІС‹РІРѕРґРµ РѕР±СЉРµРєС‚Р° РЅР° СЌРєСЂР°РЅ.
+Примечание:
+Если написать свой метод String toString() в классе Human, то именно он будет использоваться при выводе объекта на экран.
 
-РџСЂРёРјРµСЂ РІС‹РІРѕРґР°:
-РРјСЏ: РђРЅСЏ, РїРѕР»: Р¶РµРЅСЃРєРёР№, РІРѕР·СЂР°СЃС‚: 21, РѕС‚РµС†: РџР°РІРµР», РјР°С‚СЊ: РљР°С‚СЏ
-РРјСЏ: РљР°С‚СЏ, РїРѕР»: Р¶РµРЅСЃРєРёР№, РІРѕР·СЂР°СЃС‚: 55
-РРјСЏ: РРіРѕСЂСЊ, РїРѕР»: РјСѓР¶СЃРєРѕР№, РІРѕР·СЂР°СЃС‚: 2, РѕС‚РµС†: РњРёС…Р°РёР», РјР°С‚СЊ: РђРЅСЏ
+Пример вывода:
+Имя: Аня, пол: женский, возраст: 21, отец: Павел, мать: Катя
+Имя: Катя, пол: женский, возраст: 55
+Имя: Игорь, пол: мужской, возраст: 2, отец: Михаил, мать: Аня
 ...
 
 
 Requirements:
-1. РџСЂРѕРіСЂР°РјРјР° РЅРµ РґРѕР»Р¶РЅР° СЃС‡РёС‚С‹РІР°С‚СЊ РґР°РЅРЅС‹Рµ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹.
-2. Р”РѕР±Р°РІРёС‚СЊ РІ РєР»Р°СЃСЃ Human РїРѕР»СЏ: РёРјСЏ(String), РїРѕР»(boolean), РІРѕР·СЂР°СЃС‚(int), РѕС‚РµС†(Human), РјР°С‚СЊ(Human).
-3. Р”РѕР±Р°РІРёС‚СЊ РІ РєР»Р°СЃСЃ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ public Human(String name, boolean sex, int age).
-4. Р”РѕР±Р°РІРёС‚СЊ РІ РєР»Р°СЃСЃ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ public Human(String name, boolean sex, int age, Human father, Human mother).
-5. РЎРѕР·РґР°Р№ 9 СЂР°Р·РЅС‹С… РѕР±СЉРµРєС‚РѕРІ С‚РёРїР° Human (4 РѕР±СЉРµРєС‚Р° Р±РµР· РѕС‚С†Р° Рё РјР°С‚РµСЂРё Рё 5 РѕР±СЉРµРєС‚РѕРІ СЃ РЅРёРјРё)).
-6. Р’С‹РІРµРґРё СЃРѕР·РґР°РЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹ РЅР° СЌРєСЂР°РЅ.*/
+1. Программа не должна считывать данные с клавиатуры.
+2. Добавить в класс Human поля: имя(String), пол(boolean), возраст(int), отец(Human), мать(Human).
+3. Добавить в класс конструктор public Human(String name, boolean sex, int age).
+4. Добавить в класс конструктор public Human(String name, boolean sex, int age, Human father, Human mother).
+5. Создай 9 разных объектов типа Human (4 объекта без отца и матери и 5 объектов с ними)).
+6. Выведи созданные объекты на экран.*/
 
 public class Solution {
     public static void main(String[] args) {
-        // РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+        Human human1 = new Human("Василий", true, 69);
+        Human human2 = new Human("Татьяна",false,65);
+        Human human3 = new Human("Александр",true,74);
+        Human human4 = new Human("Вероника",false,70);
+        Human human5 = new Human("Павел",true,45,human1,human2);
+        Human human6 = new Human("Ангелина",false,39,human3,human4);
+        Human human7 = new Human("Андрей",true,3,human5,human6);
+        Human human8 = new Human("Василиса",false,14,human5,human6);
+        Human human9 = new Human("Пётр",true,16,human5,human6);
+
+        System.out.println(human1.toString());
+        System.out.println(human2.toString());
+        System.out.println(human3.toString());
+        System.out.println(human4.toString());
+        System.out.println(human5.toString());
+        System.out.println(human6.toString());
+        System.out.println(human7.toString());
+        System.out.println(human8.toString());
+        System.out.println(human9.toString());
+
+        // напишите тут ваш код
     }
 
     public static class Human {
-        // РЅР°РїРёС€РёС‚Рµ С‚СѓС‚ РІР°С€ РєРѕРґ
+        private String name;
+        private boolean sex;
+        private int age;
+        private Human father;
+        private Human mother;
+
+        public Human(String name, boolean sex, int age) { //3. Добавить в класс конструктор public Human(String name, boolean sex, int age).
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = null;
+            this.mother = null;
+        }
+
+        public Human(String name, boolean sex, int age, Human father, Human mother) { //4. Добавить в класс конструктор public Human(String name, boolean sex, int age, Human father, Human mother).
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = father;
+            this.mother = mother;
+        }
+        // напишите тут ваш код
 
         public String toString() {
             String text = "";
-            text += "РРјСЏ: " + this.name;
-            text += ", РїРѕР»: " + (this.sex ? "РјСѓР¶СЃРєРѕР№" : "Р¶РµРЅСЃРєРёР№");
-            text += ", РІРѕР·СЂР°СЃС‚: " + this.age;
+            text += "Имя: " + this.name;
+            text += ", пол: " + (this.sex ? "мужской" : "женский");
+            text += ", возраст: " + this.age;
 
             if (this.father != null) {
-                text += ", РѕС‚РµС†: " + this.father.name;
+                text += ", отец: " + this.father.name;
             }
 
             if (this.mother != null) {
-                text += ", РјР°С‚СЊ: " + this.mother.name;
+                text += ", мать: " + this.mother.name;
             }
 
             return text;

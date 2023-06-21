@@ -29,7 +29,6 @@ public class Solution {
 
         while (true) {
             String name = reader.readLine();
-
             if (name.isEmpty()) break;
 
             int age = Integer.parseInt(reader.readLine());

@@ -25,32 +25,39 @@ public class Solution {
         get10000(arrayList);
         set10000(arrayList);
         remove10000(arrayList);
-
+        System.out.println(arrayList.size());
         // LinkedList
         LinkedList linkedList = new LinkedList();
         insert10000(linkedList);
         get10000(linkedList);
         set10000(linkedList);
         remove10000(linkedList);
+        System.out.println(linkedList.size());
     }
 
     public static void insert10000(List list) {
-        //напишите тут ваш код
+        for(int i = 0;i<10000;i++)
+            list.add(i);//напишите тут ваш код  Добавил элементы в конец списка
 
     }
 
     public static void get10000(List list) {
-        //напишите тут ваш код
+        for(int i = 0;i<10000;i++)
+            list.get(i);//напишите тут ваш код Взял элемент из списка
 
     }
 
     public static void set10000(List list) {
-        //напишите тут ваш код
+        for(int i = 0;i<10000;i++)
+            list.set(i,i);//напишите тут ваш код   установил значение для элемента
 
     }
 
     public static void remove10000(List list) {
-        //напишите тут ваш код
-
+/**       for(int i = list.size()-1;i>=0;i--)
+            list.remove(i); */ //удалил элемент из списка (с конца списка), сдвиг при удалении, цикл обратный
+        for(int i = 0;i<10000;i++){
+            list.remove(0); //удалил первый элемент списка 10 000 раз
+        }
     }
 }

@@ -27,7 +27,18 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
-
+        ArrayList<Integer> list = new ArrayList<Integer>();//напишите тут ваш код
+        int count = 0;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < 10; i++) {
+            list.add(i, Integer.parseInt(reader.readLine()));
+            if (i>0 && list.get(i)==list.get(i-1)){
+                count++;
+            }
+        }
+        if (count>0){
+            count++;
+        }
+        System.out.println(count);
     }
 }

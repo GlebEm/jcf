@@ -3,6 +3,7 @@ package task0711;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /* 
 1. Создай список строк.
@@ -19,6 +20,16 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        ArrayList<String>list = new ArrayList<String>(); //     1. Создай список строк.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for(int i =0;i<5;i++){
+            list.add(i, reader.readLine()); //2. Программа должна считывать 5 строк с клавиатуры.
+        }
+        for(int i =0;i<13;i++){
+            String last = list.get(4);
+            list.remove(list.size()-1);
+            list.add(0,last);
+        }
+        System.out.println(Arrays.toString(list.toArray())); //напишите тут ваш код
     }
 }

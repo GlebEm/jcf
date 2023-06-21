@@ -20,6 +20,17 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        String []list = new String[10]; //1. Программа должна создавать массив на 10 строк.
+        int [] arr = new int [10]; //2. Программа должна создавать массив на 10 целых чисел.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for(int i = 0;i<list.length;i++){
+            list[i]= reader.readLine(); //3. Программа должна считывать строки для массива с клавиатуры.
+            for(int j =0;j<list[i].length();j++){
+                arr[i] = list[i].length(); //4. Программа должна в массив чисел записать длины строк из массива строк
+            }
+        }
+        for (int i =0;i<arr.length;i++){
+            System.out.println(arr[i]);//4. а затем их вывести на экран.*
+        }
     }
 }

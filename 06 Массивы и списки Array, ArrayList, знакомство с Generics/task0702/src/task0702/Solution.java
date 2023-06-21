@@ -18,6 +18,13 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        String[]list = new String[10]; //1. Программа должна создавать массив на 10 строк.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i =0; i<list.length-2;i++){ //2. Программа должна считывать 8 строк для массива с клавиатуры.
+            list[i] = reader.readLine();//напишите тут ваш код
+        }
+        for (int i=list.length-1;i>0;i--){
+            System.out.println(list[i]); //4. Программа должна выводить на экран массив (10 элементов) в обратном порядке.*/
+        }
     }
 }

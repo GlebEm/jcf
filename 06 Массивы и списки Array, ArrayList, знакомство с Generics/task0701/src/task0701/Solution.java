@@ -3,6 +3,7 @@ package task0701;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /* 
 Массивный максимум
@@ -26,12 +27,22 @@ public class Solution {
     }
 
     public static int[] initializeArray() throws IOException {
-        // создай и заполни массив
-        return null;
+        int[] array = new int[20]; //1. Метод initializeArray должен создавать массив из 20 целых чисел.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Integer.parseInt(reader.readLine());// создай и заполни массив 2. Метод initializeArray должен считать 20 чисел и вернуть их в виде массива.
+        }
+        return array; //был null
     }
 
     public static int max(int[] array) {
-        // найди максимальное значение
-        return 0;
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+           if (max<=array[i]){
+               max = array[i]; //3. Метод max должен возвращать максимальный элемент из переданного массива
+           }
+            // найди максимальное значение
+        }
+        return max; // был 0
     }
 }
